@@ -156,13 +156,6 @@ var dragFix = document.createElement('div');
 dragFix.className = 'pnlm-dragfix';
 uiContainer.appendChild(dragFix);
 
-// Display about information on right click
-var aboutMsg = document.createElement('span');
-aboutMsg.className = 'pnlm-about-msg';
-aboutMsg.innerHTML = '<a href="https://pannellum.org/" target="_blank">Pannellum</a>';
-uiContainer.appendChild(aboutMsg);
-dragFix.addEventListener('contextmenu', aboutMessage);
-
 // Create info display
 var infoDisplay = {};
 
@@ -672,24 +665,6 @@ function clearError() {
         renderContainer.style.display = 'block';
         fireEvent('errorcleared');
     }
-}
-
-/**
- * Displays about message.
- * @private
- * @param {MouseEvent} event - Right click location
- */
-function aboutMessage(event) {
-    var pos = mousePosition(event);
-    aboutMsg.style.left = pos.x + 'px';
-    aboutMsg.style.top = pos.y + 'px';
-    clearTimeout(aboutMessage.t1);
-    clearTimeout(aboutMessage.t2);
-    aboutMsg.style.display = 'block';
-    aboutMsg.style.opacity = 1;
-    aboutMessage.t1 = setTimeout(function() {aboutMsg.style.opacity = 0;}, 2000);
-    aboutMessage.t2 = setTimeout(function() {aboutMsg.style.display = 'none';}, 2500);
-    event.preventDefault();
 }
 
 /**
