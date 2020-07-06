@@ -121,11 +121,9 @@ def build(files, css, html, filename, release=False):
         standalone_css = f.read()
     standalone_css = cssCompress(css + standalone_css)
     standalone_css = standalone_css.replace("'img/sprites.svg'","'data:image/svg+xml," + urllib.parse.quote(read('css/img/sprites.svg'),'') + "'")
-    standalone_css = standalone_css.replace("'img/background.svg'","'data:image/svg+xml," + urllib.parse.quote(read('css/img/background.svg'),'') + "'")
     standalone_css = standalone_css.replace("'img/compass.svg'","'data:image/svg+xml," + urllib.parse.quote(read('css/img/compass.svg'),'') + "'")
     css = cssCompress(css)
     css = css.replace("'img/sprites.svg'","'data:image/svg+xml," + urllib.parse.quote(read('css/img/sprites.svg'),'') + "'")
-    css = css.replace("'img/background.svg'","'data:image/svg+xml," + urllib.parse.quote(read('css/img/background.svg'),'') + "'")
     css = css.replace("'img/compass.svg'","'data:image/svg+xml," + urllib.parse.quote(read('css/img/compass.svg'),'') + "'")
     
     print('=' * 40)
